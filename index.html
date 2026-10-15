@@ -28,10 +28,10 @@
                 <div class="form-group">
                     <label for="genero">Género</label>
                     <select id="genero" name="genero" required>
-                        <option value="">Seleccione el sexo w</option>
-                        <option value="M">Mucho jeje</option>
-                        <option value="F">Poco juas juas</option>
-                        <option value="O">que es eso w</option>
+                        <option value="">Seleccione el sexo </option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                        <option value="O">femboy</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -107,6 +107,38 @@
                     <i class="fas fa-save"></i> Actualizar
                 </button>
             </form>
+        </div>
+    </div>
+
+    <button class="calc-toggle" id="calcToggle">Calculadora</button>
+
+    <div class="modal" id="calcModal">
+        <div class="modal-content calc-content">
+            <span class="close">&times;</span>
+            <h3>Calculadora</h3>
+            <div class="calculator">
+                <div id="calcDisplay">0</div>
+                <div class="calc-buttons">
+                    <button class="btn-calc btn-clear" data-action="clear">C</button>
+                    <button class="btn-calc" data-action="delete">⌫</button>
+                    <button class="btn-calc btn-operator" data-action="/">÷</button>
+                    <button class="btn-calc" data-action="7">7</button>
+                    <button class="btn-calc" data-action="8">8</button>
+                    <button class="btn-calc" data-action="9">9</button>
+                    <button class="btn-calc btn-operator" data-action="*">×</button>
+                    <button class="btn-calc" data-action="4">4</button>
+                    <button class="btn-calc" data-action="5">5</button>
+                    <button class="btn-calc" data-action="6">6</button>
+                    <button class="btn-calc btn-operator" data-action="-">−</button>
+                    <button class="btn-calc" data-action="1">1</button>
+                    <button class="btn-calc" data-action="2">2</button>
+                    <button class="btn-calc" data-action="3">3</button>
+                    <button class="btn-calc btn-operator" data-action="+">+</button>
+                    <button class="btn-calc" data-action="0">0</button>
+                    <button class="btn-calc" data-action="." range=".">.</button>
+                    <button class="btn-calc btn-equal" data-action="=">=</button>
+                </div>
+            </div>
         </div>
     </div>
 

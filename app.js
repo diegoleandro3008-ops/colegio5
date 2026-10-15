@@ -204,6 +204,7 @@ async function deletePerson(id) {
 function closeModals() {
     document.getElementById('viewModal').classList.remove('show');
     document.getElementById('editModal').classList.remove('show');
+    document.getElementById('calcModal').classList.remove('show');
 }
 
 function getGeneroText(genero) {
@@ -220,3 +221,39 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
+
+// Calculadora
+document.getElementById('calcToggle').addEventListener('click', () => {
+    document.getElementById('calcModal').classList.add('show');
+});
+
+document.querySelectorAll('#calcModal .close').forEach(btn => {
+    btn.addEventListener('click', closeModals);
+});
+
+document.querySelectorAll('#calcModal .btn-calc').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const action = btn.dataset.action;
+        const display = document.getElementById('calcDisplay');
+        let current = display.textContent;
+
+        if (action === 'clear') {
+            display.textContent = '0';
+        } else if (action === 'delete') {
+            display.textContent = current.length > 1 ? current.slice(0, -1) : '0';
+        } else if (action === '=') {
+            try {
+                const expression = current.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+                display.textContent = eval(expression).toString();
+            } catch {
+                display.textContent = 'Error';
+            }
+        } else if (action === '.') {
+            if (!current.includes('.')) {
+                display.textContent = current + '.';
+            }
+        } else {
+            display.textContent = current === '0' ? btn.textContent : current + btn.textContent;
+        }
+    });
+});
